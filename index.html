@@ -6,27 +6,102 @@
 </head>
 <body>
 <script>
-    /* Задание 1 */
-    let Tc = +prompt('Введите температуру в Цельсиях:');
-    let Tf = (9 / 5) * Tc + 32;
-    console.log('Температура в Фаринейтах равна: ' + Tf);
-    /* Задание 2 */
-    let name = 'Василий';
-    let admin = name;
-    console.log(admin);
-    /* Задание 3 */
-    console.log(10 + 10 + "10");
-    console.log(10 + "10" + 10);
-    console.log(10 + 10 + +"10");
-    console.log(10 / -"");
-    console.log(10 / +"2,5");
-    /*
-    * 1. Первые 2 элемента это числа, третье строка. Числа складываются как числа (20), а строка 'приклеивается'. Результат 2010
-    * 2. По аналогу с первым примером. Результат 101010
-    * 3. Первые два элемента числа. Третьему элементу придается числовое значение. Результат 30
-    * 4. Число делится на минус что-то. Результат минус бесконечность
-    * 5. Не корректно указано дробное число (должно быть 2.5). Результат nan
-    */
+    /* Pervoe zadanie */
+    for (let i = 0; i <= 10; i++)  {
+        if (i === 0) {
+            console.log(i + ' - eto nol`');
+        } else if (i % 2 === 0) {
+            console.log(i + ' - eto chetnoe chislo');
+        } else {
+            console.log(i + ' - eto nechetnoe chislo');
+        }
+    }
+    /* Vtoroe zadanie */
+    const post = {
+        author: "John", //вывести этот текст
+        postId: 23,
+        comments: [
+            {
+                userId: 10,
+                userName: "Alex",
+                text: "lorem ipsum",
+                rating: {
+                    likes: 10,
+                    dislikes: 2 //вывести это число
+                }
+            },
+            {
+                userId: 5, //вывести это число
+                userName: "Jane",
+                text: "lorem ipsum 2", //вывести этот текст
+                rating: {
+                    likes: 3,
+                    dislikes: 1
+                }
+            },
+        ]
+    };
+    console.log(post.author);
+    console.log(post.comments[0].rating.dislikes);
+    console.log(post.comments[1].userId);
+    console.log(post.comments[1].text);
+    console.log(post.comments[1].rating.dislikes);
+    /* Tret`e zadanie */
+    const products = [
+        {
+            id: 3,
+            price: 200,
+        },
+        {
+            id: 4,
+            price: 900,
+        },
+        {
+            id: 1,
+            price: 1000,
+        },
+    ];
+    products.forEach(discount => {
+        discount.price = discount.price - discount.price * 0.15;
+    });
+    console.log(products);
+    /* Chetvertoe zadanie */
+    const product = [
+        {
+            id: 3,
+            price: 127,
+            photos: [
+                "1.jpg",
+                "2.jpg",
+            ]
+        },
+        {
+            id: 5,
+            price: 499,
+            photos: []
+        },
+        {
+            id: 10,
+            price: 26,
+            photos: [
+                "3.jpg"
+            ]
+        },
+        {
+            id: 8,
+            price: 78,
+        },
+    ];
+    const productPhoto = product.filter(prod => 'photos' in prod);
+    console.log(productPhoto);
+    const sortedPrice = product.sort((min, max) => min.price - max.price);
+    console.log(sortedPrice);
+    /* Pyatoe zadanie */
+    for (let i = 0; i < 10; console.log(i++));
+    /* Shestoe zadanie */
+    for (let i = 'x'; i.length <= 20; i += 'x') {
+        console.log(i);
+    }
 </script>
 </body>
 </html>
